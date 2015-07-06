@@ -54,6 +54,9 @@ imagery(source, options, function(err, info, done) {
 # Install imagemagick
 brew install imagemagick
 
+# Install imagemagick on linux
+sudo apt-get install imagemagick
+
 # Install imagery
 npm install imagery
 ```
