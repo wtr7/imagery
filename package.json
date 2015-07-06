@@ -1,0 +1,17 @@
+{
+  "name": "imagery",
+  "version": "0.0.1",
+  "description": "Adjust multiple images at once",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^1.3.0",
+    "gm": "^1.18.1",
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wouter Van Respaille",
+  "license": "ISC"
+}
