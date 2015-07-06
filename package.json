@@ -1,6 +1,6 @@
 {
   "name": "imagery",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Adjust multiple images at once",
   "main": "index.js",
   "repository": {
