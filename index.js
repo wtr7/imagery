@@ -27,6 +27,7 @@ function imagery(currentDir, options, callback) {
 	var scaleWidth = (options && options.scale && options.scale.width) ? options.scale.width : null;
 	var scaleHeight = (options && options.scale && options.scale.height) ? options.scale.height : null;
 	var compressType = (options && options.compressType) ? options.compressType : null;
+	var fileType = null;
 	if (options && options.fileType && (
 		options.fileType.toLowerCase() === 'jpeg' ||
 		options.fileType.toLowerCase() === 'jpg' ||
@@ -35,9 +36,7 @@ function imagery(currentDir, options, callback) {
 		options.fileType.toLowerCase() === 'png' ||
 		options.fileType.toLowerCase() === 'gif'
 	)) {
-		var fileType = options.fileType;
-	} else {
-		var fileType = null;
+		fileType = options.fileType;
 	}
 
 	// if destination doesn't exists, create the directory and validate current path
@@ -168,24 +167,23 @@ function imagery(currentDir, options, callback) {
 		var done = (filesChecked >= totalFiles) ? true : false;
 
 		if (fileType) {
-			var newPath = newPath.split(path.extname(newPath))[0] + '.' + fileType;
+			newPath = newPath.split(path.extname(newPath))[0] + '.' + fileType;
 		}
 
 		var imageWriter = im(oldPath)
 			.compress(compressType)
 			.quality(quality);
 
-		if (resizeWidth && resizeHeight) {
-			imageWriter.resize(resizeWidth, resizeHeight)
-		}
-
 		if (scaleWidth && scaleHeight) {
 			imageWriter.scale(scaleWidth, scaleHeight);
 		}
 
+		if (resizeWidth && resizeHeight) {
+			imageWriter.resize(resizeWidth, resizeHeight)
+		}
+
 		imageWriter.write(newPath, function(err, stdout, stderr) {
 			if (err || stderr) {
-				console.log(stderr);
 				return cb('Writing file to: ', newPath + ' has failed', null, done);
 			}
 
