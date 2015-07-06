@@ -51,15 +51,9 @@ imagery(source, options, function(err, info, done) {
   * `done` - Boolean when all files has been edited
 
 ```
-# to run tests
-npm test
+# Install imagemagick
+brew install imagemagick
 
-# to re-generate test fixtures
-npm run test-regen
-
-# to benchmark against bash/zsh
-npm run bench
-
-# to profile javascript
-npm run prof
+# Install imagery
+npm install imagery
 ```
